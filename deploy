@@ -117,11 +117,12 @@ if ! [ -d ~/Git-Repos/.tmux ] ; then
 	git clone https://github.com/gpakosz/.tmux.git ~/Git-Repos/.tmux
 	ln -s -f ~/Git-Repos/.tmux/.tmux.conf ~/.tmux.conf
 	cp ~/Git-Repos/.tmux/.tmux.conf.local ~/.tmux.conf.local
+	echo "bind < split-window -h" >> ~/.tmux.conf.local
 
 	# Tmux fingers
 	echo "Installing tmux-fingers"
 	git clone --recursive https://github.com/Morantron/tmux-fingers ~/Git-Repos/tmux-fingers
-	echo "run-shell ~/.tmux/plugins/tmux-fingers/tmux-fingers.tmux" >> ~/.tmux.conf.local
+	echo "run ~/Git-Repos/tmux-fingers/tmux-fingers.tmux" >> ~/.tmux.conf.local
 	echo "set -g @fingers-key F" >> ~/.tmux.conf.local
 	echo "set -g @fingers-pattern-0 '0x([0-9a-f]+)'" >> ~/.tmux.conf.local
 fi

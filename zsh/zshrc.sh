@@ -62,7 +62,7 @@ done
 
 compinit
 
-if [ -d "~/Git-Repos/oh-my-zsh" ] ; then
+if [ -d ~/Git-Repos/oh-my-zsh ] ; then
 	source ~/Git-Repos/oh-my-zsh/lib/history.zsh;
 	source ~/Git-Repos/oh-my-zsh/lib/key-bindings.zsh;
 	source ~/Git-Repos/oh-my-zsh/lib/completion.zsh;
