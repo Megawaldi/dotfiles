@@ -7,18 +7,15 @@
 	git config --global push.default current
 
 # Aliases
-source ~/dotfiles/zsh/aliases.zsh
+	source ~/dotfiles/zsh/aliases.zsh
 
-	#alias v="vim -p"
 	mkdir -p /tmp/log
-	
-	# This is currently causing problems (fails when you run it anywhere that isn't a git project's root directory)
-	# alias vs="v `git status --porcelain | sed -ne 's/^ M //p'`"
+
 
 # Settings
 	export VISUAL=vim
 
-source ~/dotfiles/zsh/plugins/fixls.zsh
+	source ~/dotfiles/zsh/plugins/fixls.zsh
 
 #Functions
 	# Loop a command and show the output in vim
