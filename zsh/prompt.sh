@@ -9,7 +9,8 @@ set_prompt() {
 	# [
 	PS1=""
 	
-	if [ systemctl is-active tor.service ]; then
+	#if [ systemctl is-active tor.service ]; then
+	if [ "$(systemctl is-active tor.service)" = "active" ]; then
 		PS1+="%{$fg[green]%}● %{$reset_color%}"
 	else
 		PS1+="%{$fg[red]%}● %{$reset_color%}"
