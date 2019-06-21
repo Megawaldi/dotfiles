@@ -131,6 +131,16 @@ printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
 printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 #printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 
+# fuzzy finder
+if ! [ -d ~/Git-Repos/.fzf ] ; then
+	echo "Installing fuzzy finder"
+	git clone https://github.com/junegunn/fzf ~/Git-Repos/.fzf
+	~/Git-Repos/.fzf/install
+	#echo "export FZF_DEFAULT_OPTS='--height 40% --reverse --border'" >> ~/.fzf.zsh
+	rm ~/.fzf.*
+fi
+
+
 # Neovim and various Plugins
 if ! [ -d ~/Git-Repos/Vundle.vim ] ; then
 	echo
