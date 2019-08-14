@@ -79,13 +79,15 @@ check_for_software xclip
 echo
 check_for_software neovim
 echo
-check_for_software msmtp
+#check_for_software msmtp
 echo
-check_for_software mutt
+#check_for_software mutt
 echo
 check_for_software grc 
 echo
 check_for_software gdb
+echo
+check_for_software fzf
 echo
 check_default_shell
 echo
@@ -132,13 +134,13 @@ printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 #printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 
 # fuzzy finder
-if ! [ -d ~/Git-Repos/.fzf ] ; then
-	echo "Installing fuzzy finder"
-	git clone https://github.com/junegunn/fzf ~/Git-Repos/.fzf
-	~/Git-Repos/.fzf/install
-	#echo "export FZF_DEFAULT_OPTS='--height 40% --reverse --border'" >> ~/.fzf.zsh
-	rm ~/.fzf.*
-fi
+#if ! [ -d ~/Git-Repos/.fzf ] ; then
+#	echo "Installing fuzzy finder"
+#	git clone https://github.com/junegunn/fzf ~/Git-Repos/.fzf
+#	~/Git-Repos/.fzf/install
+#	#echo "export FZF_DEFAULT_OPTS='--height 40% --reverse --border'" >> ~/.fzf.zsh
+#	rm ~/.fzf.*
+#fi
 
 
 # Neovim and various Plugins
@@ -163,58 +165,58 @@ if ! [ -d ~/Git-Repos/Vundle.vim ] ; then
 fi
 
 # Goobook installation
-echo
-echo -n "Would you like to install goobook now? (y/n) "
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y" ;then
-	sudo -H pip install goobook
-	goobook authenticate
-else
-	echo -e "\nNot changing anything regarding goobook."
-fi
+#echo
+#echo -n "Would you like to install goobook now? (y/n) "
+#old_stty_cfg=$(stty -g)
+#stty raw -echo
+#answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+#stty $old_stty_cfg
+#if echo "$answer" | grep -iq "^y" ;then
+#	sudo -H pip install goobook
+#	goobook authenticate
+#else
+#	echo -e "\nNot changing anything regarding goobook."
+#fi
 
 # MSMTP configuration
-echo
-echo -n "Would you like to roll-out msmtprc file now? (y/n) "
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y" ;then
-	echo "Copying msmtprc for gmail/webde"
-	cp "${HOME}/dotfiles/msmtp/.msmtprc" "${HOME}"
-else
-	echo -e "\nNot changing anything regarding msmtp configuration."
-fi
+#echo
+#echo -n "Would you like to roll-out msmtprc file now? (y/n) "
+#old_stty_cfg=$(stty -g)
+#stty raw -echo
+#answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+#stty $old_stty_cfg
+#if echo "$answer" | grep -iq "^y" ;then
+#	echo "Copying msmtprc for gmail/webde"
+#	cp "${HOME}/dotfiles/msmtp/.msmtprc" "${HOME}"
+#else
+#	echo -e "\nNot changing anything regarding msmtp configuration."
+#fi
 
 # Mutt configuration
-echo
-echo -n "Would you like to set reset SMTP/IMAP passwords for mail accounts now? (y/n) "
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-stty $old_stty_cfg
-if echo "$answer" | grep -iq "^y" ;then
-	echo "Setting msmtp/IMAP passwords within python keyring for webde"
-	python -m keyring set msmtp webde
-	echo "Setting msmtp/IMAP passwords within python keyring for google"
-	python -m keyring set msmtp gmail	
-else
-	echo -e "\nNot changing anything regarding mail passwords."
-fi
+#echo
+#echo -n "Would you like to set reset SMTP/IMAP passwords for mail accounts now? (y/n) "
+#old_stty_cfg=$(stty -g)
+#stty raw -echo
+#answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+#stty $old_stty_cfg
+#if echo "$answer" | grep -iq "^y" ;then
+#	echo "Setting msmtp/IMAP passwords within python keyring for webde"
+#	python -m keyring set msmtp webde
+#	echo "Setting msmtp/IMAP passwords within python keyring for google"
+#	python -m keyring set msmtp gmail	
+#else
+#	echo -e "\nNot changing anything regarding mail passwords."
+#fi
 
-cd ~/Git-Repos/dotfiles/mutt
-./mutt-compile-colors.sh
-cd ..
-echo "Copying mutt config files to HOME dir and changing perms"
-cp -R ./mutt/.muttrc ./mutt/.mutt "${HOME}"
-chmod -R 700 "${HOME}"/.mutt 
-chmod 700 "${HOME}"/.muttrc
-echo "Setting mutt colors"
-sed -i -e  "1s;^;source ${HOME}/dotfiles/mutt/mutt-colors-solarized-dark-16.muttrc\n;" ~/.muttrc
+#cd ~/Git-Repos/dotfiles/mutt
+#./mutt-compile-colors.sh
+#cd ..
+#echo "Copying mutt config files to HOME dir and changing perms"
+#cp -R ./mutt/.muttrc ./mutt/.mutt "${HOME}"
+#chmod -R 700 "${HOME}"/.mutt 
+#chmod 700 "${HOME}"/.muttrc
+#echo "Setting mutt colors"
+#sed -i -e  "1s;^;source ${HOME}/dotfiles/mutt/mutt-colors-solarized-dark-16.muttrc\n;" ~/.muttrc
 
 # grc / alias configuration
 echo
