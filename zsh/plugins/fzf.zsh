@@ -11,5 +11,5 @@
 # Key bindings
 # ------------
 #source "/home/thor/Git-Repos/.fzf/shell/key-bindings.zsh"
-source "/usr/share/fzf/key-bindings.zsh"
+source "/usr/share/doc/fzf/examples/key-bindings.zsh"
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
