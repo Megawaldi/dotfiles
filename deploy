@@ -129,7 +129,7 @@ if ! [ -d ~/Git-Repos/.tmux ] ; then
 	echo "set -g @fingers-pattern-0 '0x([0-9a-f]+)'" >> ~/.tmux.conf.local
 fi
 
-printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
+printf "\nsource '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
 printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 #printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 
