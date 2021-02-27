@@ -8,6 +8,7 @@
 
 # Aliases
 	source ~/dotfiles/zsh/aliases.zsh
+	source ~/dotfiles/zsh/aliases.grc
 
 	mkdir -p /tmp/log
 
