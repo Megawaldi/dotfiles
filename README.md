@@ -104,24 +104,4 @@ Each plugin is sensitive to where you are and what you're doing, they reveal the
 
 ### Todo
 
-- [x] nvim / vundle / vimtasks
-- [x] mutt
-- [x] grc
-- [ ] vboxmanage
-- [x] copy paste
-- [x] vimwiki
-- [x] gdb
-- [x] cheat
-- [x] dict.cc.py
-- [ ] pwntools
-
-* Globally install
-	- r2 plugins
-	- pwntools
-	- ipython / python jedi / vim python jedi
-	- binary ninja
-	- vscode
-	- gimp
-	- audacity
-	- virtualbox
-	- burpsuite
+- [] bashrc
